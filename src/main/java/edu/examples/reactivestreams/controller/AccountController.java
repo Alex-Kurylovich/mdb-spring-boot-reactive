@@ -1,15 +1,15 @@
-package com.example.mdbspringbootreactive.controller;
+package edu.examples.reactivestreams.controller;
 
-import com.example.mdbspringbootreactive.entity.ResponseMessage;
-import com.example.mdbspringbootreactive.entity.TransferRequest;
-import com.example.mdbspringbootreactive.enumeration.ErrorReason;
-import com.example.mdbspringbootreactive.exception.AccountNotFoundException;
-import com.example.mdbspringbootreactive.exception.TransactionException;
-import com.example.mdbspringbootreactive.model.Account;
-import com.example.mdbspringbootreactive.model.Txn;
-import com.example.mdbspringbootreactive.model.TxnEntry;
-import com.example.mdbspringbootreactive.repository.AccountRepository;
-import com.example.mdbspringbootreactive.service.TxnService;
+import edu.examples.reactivestreams.entity.ResponseMessage;
+import edu.examples.reactivestreams.entity.TransferRequest;
+import edu.examples.reactivestreams.enumeration.ErrorReason;
+import edu.examples.reactivestreams.exception.AccountNotFoundException;
+import edu.examples.reactivestreams.exception.TransactionException;
+import edu.examples.reactivestreams.model.Account;
+import edu.examples.reactivestreams.model.Txn;
+import edu.examples.reactivestreams.model.TxnEntry;
+import edu.examples.reactivestreams.repository.AccountRepository;
+import edu.examples.reactivestreams.service.TxnService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;

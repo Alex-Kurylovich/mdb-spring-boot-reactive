@@ -1,7 +1,7 @@
-package com.example.mdbspringbootreactive.model;
+package edu.examples.reactivestreams.model;
 
-import com.example.mdbspringbootreactive.enumeration.ErrorReason;
-import com.example.mdbspringbootreactive.enumeration.TxnStatus;
+import edu.examples.reactivestreams.enumeration.ErrorReason;
+import edu.examples.reactivestreams.enumeration.TxnStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

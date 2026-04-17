@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.config;
+package edu.examples.reactivestreams.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

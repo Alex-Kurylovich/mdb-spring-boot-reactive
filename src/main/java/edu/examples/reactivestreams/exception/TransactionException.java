@@ -1,6 +1,6 @@
-package com.example.mdbspringbootreactive.exception;
+package edu.examples.reactivestreams.exception;
 
-import com.example.mdbspringbootreactive.model.Txn;
+import edu.examples.reactivestreams.model.Txn;
 
 public class TransactionException extends RuntimeException {
 

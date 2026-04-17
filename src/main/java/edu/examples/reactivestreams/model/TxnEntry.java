@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.model;
+package edu.examples.reactivestreams.model;
 
 public class TxnEntry {
     private String accountNum;

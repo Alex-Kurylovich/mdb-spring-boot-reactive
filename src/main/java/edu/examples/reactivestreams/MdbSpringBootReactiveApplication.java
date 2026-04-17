@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive;
+package edu.examples.reactivestreams;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

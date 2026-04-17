@@ -1,8 +1,8 @@
-package com.example.mdbspringbootreactive.template;
+package edu.examples.reactivestreams.template;
 
-import com.example.mdbspringbootreactive.enumeration.ErrorReason;
-import com.example.mdbspringbootreactive.enumeration.TxnStatus;
-import com.example.mdbspringbootreactive.model.Txn;
+import edu.examples.reactivestreams.enumeration.ErrorReason;
+import edu.examples.reactivestreams.enumeration.TxnStatus;
+import edu.examples.reactivestreams.model.Txn;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;

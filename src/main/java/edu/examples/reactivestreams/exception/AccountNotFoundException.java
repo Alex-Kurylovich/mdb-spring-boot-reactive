@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.exception;
+package edu.examples.reactivestreams.exception;
 
 public class AccountNotFoundException extends RuntimeException {
     public AccountNotFoundException() {

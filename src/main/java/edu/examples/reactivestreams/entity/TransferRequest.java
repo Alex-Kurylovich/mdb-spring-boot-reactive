@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.entity;
+package edu.examples.reactivestreams.entity;
 
 public class TransferRequest {
 

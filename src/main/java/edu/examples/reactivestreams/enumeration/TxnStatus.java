@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.enumeration;
+package edu.examples.reactivestreams.enumeration;
 
 public enum TxnStatus {
     PENDING, SUCCESS, FAILED

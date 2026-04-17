@@ -1,4 +1,4 @@
-package com.example.mdbspringbootreactive.model;
+package edu.examples.reactivestreams.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

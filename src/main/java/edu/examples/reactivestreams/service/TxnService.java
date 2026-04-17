@@ -1,12 +1,12 @@
-package com.example.mdbspringbootreactive.service;
+package edu.examples.reactivestreams.service;
 
-import com.example.mdbspringbootreactive.enumeration.ErrorReason;
-import com.example.mdbspringbootreactive.enumeration.TxnStatus;
-import com.example.mdbspringbootreactive.exception.AccountNotFoundException;
-import com.example.mdbspringbootreactive.exception.TransactionException;
-import com.example.mdbspringbootreactive.model.Txn;
-import com.example.mdbspringbootreactive.repository.AccountRepository;
-import com.example.mdbspringbootreactive.template.TxnTemplate;
+import edu.examples.reactivestreams.enumeration.ErrorReason;
+import edu.examples.reactivestreams.enumeration.TxnStatus;
+import edu.examples.reactivestreams.exception.AccountNotFoundException;
+import edu.examples.reactivestreams.exception.TransactionException;
+import edu.examples.reactivestreams.model.Txn;
+import edu.examples.reactivestreams.repository.AccountRepository;
+import edu.examples.reactivestreams.template.TxnTemplate;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.reactive.TransactionalOperator;

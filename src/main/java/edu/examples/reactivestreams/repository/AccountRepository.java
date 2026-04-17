@@ -1,6 +1,6 @@
-package com.example.mdbspringbootreactive.repository;
+package edu.examples.reactivestreams.repository;
 
-import com.example.mdbspringbootreactive.model.Account;
+import edu.examples.reactivestreams.model.Account;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.data.mongodb.repository.Update;
