@@ -78,6 +78,11 @@ public class AccountController {
         return txnService.saveTransaction(txn).flatMap(txnService::executeTxn);
     }
 
+    @GetMapping("/accounts")
+    public Mono<Long> countOfAccounts() {
+        return accountRepository.count();
+    }
+
     @ExceptionHandler(AccountNotFoundException.class)
     ResponseEntity<ResponseMessage> accountNotFound(AccountNotFoundException ex) {
         return ResponseEntity.badRequest().body(new ResponseMessage(ErrorReason.ACCOUNT_NOT_FOUND.name()));
