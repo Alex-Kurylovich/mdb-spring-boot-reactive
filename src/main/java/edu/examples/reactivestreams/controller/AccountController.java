@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -36,13 +37,13 @@ public class AccountController {
         LOGGER.info("Stack trace's last line: " + stackTrace[stackTrace.length - 1].toString() + " from " + context);
     }
 
-    @PostMapping("/account")
+    @PostMapping("/account/create")
     public Mono<Account> createAccount(@RequestBody Account account) {
         printLastLineStackTrace("POST /account");
         return accountRepository.save(account);
     }
 
-    @GetMapping("/account/{accountNum}")
+    @GetMapping("/account/{accountNum}/view")
     public Mono<Account> getAccount(@PathVariable String accountNum) {
         printLastLineStackTrace("GET /account/" + accountNum);
         return accountRepository.findByAccountNum(accountNum).switchIfEmpty(Mono.error(new AccountNotFoundException()));
@@ -78,9 +79,14 @@ public class AccountController {
         return txnService.saveTransaction(txn).flatMap(txnService::executeTxn);
     }
 
-    @GetMapping("/accounts")
+    @GetMapping("/accounts/count")
     public Mono<Long> countOfAccounts() {
         return accountRepository.count();
+    }
+
+    @GetMapping("/accounts/{accountNum}/transactions")
+    public Flux<TxnEntry> getAccountsTransactions(@PathVariable String accountNum) {
+        return accountRepository.findByTxnByAccount(accountNum);
     }
 
     @ExceptionHandler(AccountNotFoundException.class)
