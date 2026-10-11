@@ -101,7 +101,7 @@ public class AccountController {
 
     @ExceptionHandler(TransactionException.class)
     ResponseEntity<Mono<Txn>> insufficientBalance(TransactionException ex) {
-        return ResponseEntity.unprocessableEntity().body(txnService.saveTransaction(ex.getTxn()));
+        return ResponseEntity.unprocessableContent().body(txnService.saveTransaction(ex.getTxn()));
     }
 
 }

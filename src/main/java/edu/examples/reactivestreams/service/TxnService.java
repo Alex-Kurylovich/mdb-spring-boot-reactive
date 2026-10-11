@@ -22,7 +22,6 @@ public class TxnService {
      */
     private final TransactionalOperator transactionalOperator;
 
-
     TxnService(TxnTemplate txnTemplate,
                AccountRepository accountRepository,
                TransactionalOperator transactionalOperator) {
