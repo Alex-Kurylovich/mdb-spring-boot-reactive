@@ -1,13 +1,13 @@
 package edu.examples.reactivestreams.controller;
 
+import edu.examples.reactivestreams.entity.TransferRequest;
 import edu.examples.reactivestreams.model.Grocery;
+import edu.examples.reactivestreams.model.Txn;
 import edu.examples.reactivestreams.repository.GroceryRepository;
 import edu.examples.reactivestreams.service.GroceryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,6 +21,13 @@ public class GroceryController {
     public GroceryController(GroceryRepository groceryRepository, GroceryService groceryService) {
         this.groceryRepository = groceryRepository;
         this.groceryService = groceryService;
+    }
+
+    @PostMapping("/grocery/create")
+    public Mono<Grocery> createGrocery(@RequestBody Grocery grocery) {
+        Mono<Grocery> groceryCreated = groceryRepository.save(grocery);
+        LOGGER.info("Grocery created = {}", groceryCreated);
+        return groceryCreated;
     }
 
     @GetMapping("/grocery/count")
