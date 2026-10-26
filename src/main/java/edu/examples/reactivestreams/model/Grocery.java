@@ -1,9 +1,12 @@
 package edu.examples.reactivestreams.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("grocery")
 public class Grocery {
+    @Id
+    private String id;
     private String name;
     private int quantity;
     private String category;

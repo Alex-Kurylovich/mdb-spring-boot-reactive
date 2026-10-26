@@ -1,8 +1,6 @@
 package edu.examples.reactivestreams.controller;
 
-import edu.examples.reactivestreams.entity.TransferRequest;
 import edu.examples.reactivestreams.model.Grocery;
-import edu.examples.reactivestreams.model.Txn;
 import edu.examples.reactivestreams.repository.GroceryRepository;
 import edu.examples.reactivestreams.service.GroceryService;
 import org.slf4j.Logger;
@@ -10,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.time.Duration;
 
 @RestController
 public class GroceryController {
@@ -28,6 +28,17 @@ public class GroceryController {
         Mono<Grocery> groceryCreated = groceryRepository.save(grocery);
         LOGGER.info("Grocery created = {}", groceryCreated);
         return groceryCreated;
+    }
+
+    @GetMapping("/grocery/delete/{name}")
+    public Mono<Grocery> deleteGrocery(@PathVariable String name) {
+        Mono<Grocery> groceryToDelete = groceryRepository.findGroceryByName(name);
+        Grocery groceryEntity = groceryToDelete.block(Duration.ofSeconds(3));
+        if (groceryEntity != null) {
+            groceryRepository.delete(groceryEntity);
+            LOGGER.info("Grocery deleted = {}", groceryEntity.getName());
+        }
+        return groceryToDelete;
     }
 
     @GetMapping("/grocery/count")
