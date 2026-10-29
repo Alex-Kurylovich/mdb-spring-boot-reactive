@@ -6,6 +6,11 @@ import reactor.core.publisher.Mono;
 
 import java.util.concurrent.CompletableFuture;
 
+/*
+o Adapt to Other Types
+Convert the Mono to a non-reactive type like CompletableFuture using as(),
+then use CompletableFuture’s non-blocking methods to process the value.
+ */
 public class Test_as {
     private static final Logger log = LoggerFactory.getLogger(Test_as.class);
 
