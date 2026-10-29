@@ -131,3 +131,16 @@ To run the test:
 3. In command line, run `mongosh "<MongoDB connection string>" --file setup.js` to reset the database.
 4. Use Postman to "Run collection" to automatically run all the Postman calls in sequence and see that the tests are passing.
 
+## Tests
+1. Avoid Blocking in Reactive Threads#
+   Never call block() in a reactive thread (e.g., Spring WebFlux’s Netty event loops). This starves the thread pool and degrades scalability. If you must block, offload to a dedicated thread pool using Schedulers.boundedElastic():
+   Correct way to block in a reactive context
+   String value = mono.subscribeOn(Schedulers.boundedElastic()).block(Duration.ofSeconds(5));
+2. Prefer Non-Blocking Approaches#
+   Use subscribe(), map(), or flatMap() instead of blocking whenever possible. This maintains the reactive pipeline’s efficiency.Learn to Code
+3. Handle Empty Monos Gracefully#
+   Use blockOptional() instead of block() to avoid NoSuchElementException when the Mono might be empty. For non-blocking cases, use defaultIfEmpty() or switchIfEmpty() to provide fallback values.
+4. Use Timeouts for Blocking Calls#
+   Always use block(Duration) instead of block() to prevent infinite waiting. This avoids thread leaks caused by unresponsive Monos.Earn a CS Degree
+5. Don’t Over-Extract#
+   Stay reactive when feasible. Extracting values disrupts the backpressure mechanism and reduces the application’s ability to handle load efficiently.
